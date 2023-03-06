@@ -1,22 +1,22 @@
-import { Image, ScrollView, StyleSheet, View } from "react-native";
-
+import { FlatList, Image, ScrollView, StyleSheet, View } from "react-native";
+import pins from "../../assets/data/pins";
 import Pin from "../../components/Pin";
 export default function HomeScreen() {
   return (
     <ScrollView>
       <View style={styles.container}>
-        <Pin
-          title={"Title"}
-          image={
-            "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/pinterest/0.jpeg"
-          }
-        />
-        <Pin
-          title={"Title 2"}
-          image={
-            "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/pinterest/1.jpeg"
-          }
-        />
+        <View style={styles.column}>
+          {pins.map((pin, index) => {
+            if (+pin.id % 2 === 0)
+              return <Pin image={pin.image} title={pin.title} key={index} />;
+          })}
+        </View>
+        <View style={styles.column}>
+          {pins.map((pin, index) => {
+            if (+pin.id % 2 != 0)
+              return <Pin image={pin.image} title={pin.title} key={index} />;
+          })}
+        </View>
       </View>
     </ScrollView>
   );
@@ -24,15 +24,11 @@ export default function HomeScreen() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
     padding: 10,
+    flexDirection: "row",
   },
 
-  title: {
-    fontSize: 20,
-    fontWeight: "bold",
-    margin: 10,
+  column: {
+    flex: 1,
   },
 });
