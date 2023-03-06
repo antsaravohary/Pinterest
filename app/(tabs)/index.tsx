@@ -1,31 +1,38 @@
-import { StyleSheet } from 'react-native';
+import { Image, ScrollView, StyleSheet, View } from "react-native";
 
-import EditScreenInfo from '../../components/EditScreenInfo';
-import { Text, View } from '../../components/Themed';
-
-export default function TabOneScreen() {
+import Pin from "../../components/Pin";
+export default function HomeScreen() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Tab One</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="app/(tabs)/index.tsx" />
-    </View>
+    <ScrollView>
+      <View style={styles.container}>
+        <Pin
+          title={"Title"}
+          image={
+            "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/pinterest/0.jpeg"
+          }
+        />
+        <Pin
+          title={"Title 2"}
+          image={
+            "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/pinterest/1.jpeg"
+          }
+        />
+      </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
+    padding: 10,
   },
+
   title: {
     fontSize: 20,
-    fontWeight: 'bold',
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
+    fontWeight: "bold",
+    margin: 10,
   },
 });
