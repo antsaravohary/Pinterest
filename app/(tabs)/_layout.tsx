@@ -15,18 +15,37 @@ export default function TabLayout() {
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
+        tabBarHideOnKeyboard: true,
       }}
     >
       <Tabs.Screen
         name={"pin"}
         options={{
           headerShown: false,
+          tabBarIcon: ({ color }) => (
+            <FontAwesome name={"home"} size={30} color={color} />
+          ),
+          tabBarShowLabel: false,
+        }}
+      />
+      <Tabs.Screen
+        name={"CreatePinScreen"}
+        options={{
+          title: "Create pin",
+          tabBarIcon: ({ color }) => (
+            <FontAwesome name={"plus"} size={30} color={color} />
+          ),
+          tabBarShowLabel: false,
         }}
       />
       <Tabs.Screen
         name="ProfileScreen"
         options={{
           title: "Profile",
+          tabBarIcon: ({ color }) => (
+            <FontAwesome name={"user"} size={30} color={color} />
+          ),
+          tabBarShowLabel: false,
         }}
       />
     </Tabs>
