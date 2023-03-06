@@ -24,7 +24,6 @@ const PinScreen = () => {
   const pinId = route.params?.id;
 
   const pin = pins.find((pin) => pin.id === pinId);
-  console.log("PINNNN", pin);
 
   useEffect(() => {
     if (pin?.image) {

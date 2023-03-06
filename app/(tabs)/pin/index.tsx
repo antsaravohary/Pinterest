@@ -1,39 +1,9 @@
 import { FlatList, Image, ScrollView, StyleSheet, View } from "react-native";
 import { pins } from "../../../assets/data/pins";
 import Pin from "../../../components/Pin";
+import MasonryList from "../../../components/MasonryList";
 export default function HomeScreen() {
-  return (
-    <ScrollView>
-      <View style={styles.container}>
-        <View style={styles.column}>
-          {pins.map((pin, index) => {
-            if (pin?.id && +pin.id % 2 === 0)
-              return (
-                <Pin
-                  id={pin.id}
-                  image={pin.image}
-                  title={pin.title}
-                  key={pin.id}
-                />
-              );
-          })}
-        </View>
-        <View style={styles.column}>
-          {pins.map((pin, index) => {
-            if (pin?.id && +pin.id % 2 != 0)
-              return (
-                <Pin
-                  id={pin.id}
-                  image={pin.image}
-                  title={pin.title}
-                  key={pin.id}
-                />
-              );
-          })}
-        </View>
-      </View>
-    </ScrollView>
-  );
+  return <MasonryList pins={pins} />;
 }
 
 const styles = StyleSheet.create({

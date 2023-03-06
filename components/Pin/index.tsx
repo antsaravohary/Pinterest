@@ -21,7 +21,6 @@ const Pin = ({ image, title, id }: PinProps) => {
 
   const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
   const onPress = () => {
-    console.log("id", id);
     navigation.navigate("PinScreen", { id });
   };
 
