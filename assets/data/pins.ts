@@ -1,4 +1,6 @@
-export default [
+import { PinProps } from "../../components/Pin";
+
+export const pins: PinProps[] = [
   {
     id: "0",
     image:
